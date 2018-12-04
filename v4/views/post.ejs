@@ -1,0 +1,79 @@
+<% include ./partials/header.ejs %>
+
+<div class="container pt-3">
+    <div class="row">
+        <!--Profile Aside-->
+        <div class="col-md-4">
+            <div class="tl-profile-container">
+                <!--Profile Photo-->
+                <img src="<%= user.image %>" >
+                <div class="meta">
+                    <!--Name-->
+                    <p><%= user.firstName %> <%= user.lastName %></p>
+                    <!--Bio-->
+                    <p><%= user.bio %></p>
+                    <!--Hometown???-->
+                    <p><%= user.city %>, <%= user.state %></p>
+                    <!--Birthday-->
+                    <p><%= user.month %> <%= user.day %>, <%= user.year %></p>
+                    <!--Number of posts-->
+                    <p><%= user.posts.length %> posts</p>
+                    <!--Member since-->
+                    <p>Member since <%= moment(user.joinedOn).format('MMMM Do YYYY') %></p>
+                    <!-- Edit if authenticated -->
+                    <% if (user._id.equals(currentUser._id)) { %>
+                        <!--Edit button-->
+                        
+                        <!--Delete button-->
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        <!--Main Timeline-->
+        <div class="col-md-8">
+            
+            <!--Timeline posts-->
+            <div class="tl-posts">
+                
+                <% if (user._id.equals(currentUser._id)) { %>
+                    <p class="post-title-head">Your post</p>
+                <% } else { %>
+                    <p class="post-title-head"><%= user.firstName %>'s post</p>
+                <% } %> 
+                
+                <div class="tl-haiku-container">
+                        <div class="author-meta-info">
+                            <img src="<%= user.image %>" alt="<%= user.firstName %> <%=user.lastName%>">
+                            <p><%= user.firstName %> <%=user.lastName%></p>
+                        </div>
+                        <div class="tl-content-haiku-container">
+                            <p><%= post.line1  %></p>
+                            <p><%= post.line2  %></p>
+                            <p><%= post.line3  %></p>
+                        </div>
+                        <div class="tl-meta-container">
+                            <p class="tl-date"><%= moment(post.createdAt).format('MMMM Do YYYY, h:mm a') %></p>
+                            <div class="like-container">
+                                <i class="fas fa-grin-beam"></i>
+                                <p><%= post.likes %></p>
+                            </div>
+                            <div class="post-comment-container">
+                                <i class="fas fa-comment"></i>
+                                <p class="tl-comments"><%= post.comments.length %></p>
+                            </div>
+                        </div>
+                        <div class="comment-container">
+                            
+                        </div>
+                    </div>
+                
+                
+                
+            </div> <!-- End tl posts -->
+            
+        </div> <!--End main timeline -->
+    </div> <!-- End row -->
+    
+</div> <!--End container -->
+
+<% include ./partials/footer.ejs %>

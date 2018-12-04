@@ -1,0 +1,122 @@
+/*Body*/
+body {
+    background-color: #f5f5f5;
+}
+/*Logo Font*/
+.logo {
+    font-family: 'Ranga', cursive;
+}
+/*Main font*/
+* {
+    font-family: 'Raleway', sans-serif;
+}
+
+/*Landing*/
+
+    /*Nav*/
+    .landing-nav {
+        padding: .25rem;
+        background: #f2bfd869;
+    }
+    
+    .landing-nav-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .landing-logo-head-container {
+        display: inline-block;
+    }
+    
+    .landing-logo-head-container img {
+        width: 80px;
+    }
+    
+    .landing-logo-head-container p {
+        text-align: center;
+        font-size: 1.25rem;
+        margin-bottom: 0rem;
+    }
+    
+        /*Login*/
+        .login {
+            display: inline-block;
+        }
+        
+        .login form {
+            margin-bottom: 0rem;
+        }
+        
+        .land-login {
+            margin-bottom: 0rem;
+        }
+        
+        .land-login .col label {
+            margin-bottom: .25rem;
+            font-size: .75rem;
+        }
+        
+        .landing-login-btn {
+            align-self: flex-end;
+        }
+        
+        .land-login .col input {
+            font-size: .75rem;
+        }
+        
+    /*Information*/
+    .landing-p {
+        font-weight: bold;
+        margin-bottom: .25rem;
+        font-size: 1.25rem;
+    }
+    
+    .landing-color {
+        color: #e89ec5;
+    }
+    
+    .info-bullet {
+        display: flex;
+        align-items: center;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+    
+    .info-bullet i {
+        padding-right: .5rem;
+        font-size: 1.5rem;
+    }
+    
+    .info-bullet p {
+        display: inline;
+        margin-bottom: 0rem;
+    }
+        
+
+    /*Signup*/
+    .landing-content {
+        padding-top: 1.5rem;
+    }
+    
+    .bday-title {
+        margin-bottom: 0rem;
+    }
+    
+    .birthdays {
+        display: flex;
+    }
+    
+    .birthdays select, .birthdays input {
+        display: inline-block;
+    }
+    
+
+/*Nav*/
+
+/*Timeline*/
+
+/*Footer*/
+.date {
+    padding-left: 15px;
+}

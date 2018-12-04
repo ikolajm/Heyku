@@ -1,0 +1,52 @@
+<% include ../partials/header.ejs %>
+
+<div class="container pt-3">
+    <div class="row">
+        <!--Profile Aside-->
+        <div class="col-md-4">
+            <div class="tl-profile-container">
+                <!--Profile Photo-->
+                <img src="<%= user.image %>" >
+                <div class="meta">
+                    <!--Name-->
+                    <p><%= user.firstName %> <%= user.lastName %></p>
+                    <!--Bio-->
+                    <p><%= user.bio %></p>
+                    <!--Hometown???-->
+                    <p><%= user.city %>, <%= user.state %></p>
+                    <!--Birthday-->
+                    <p><%= user.month %> <%= user.day %>, <%= user.year %></p>
+                    <!--Number of posts-->
+                    <p><%= user.posts.length %> posts</p>
+                    <!--Member since-->
+                    <p>Member since <%= moment(user.joinedOn).format('MMMM Do YYYY') %></p>
+                    <!-- Edit if authenticated -->
+                    <% if (user._id.equals(currentUser._id)) { %>
+                        <!--Edit button-->
+                        <!--Delete button-->
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        <!--Main Timeline-->
+        <div class="col-md-8">
+            
+                <div class="tl-post-container">
+                    <!--New post form-->
+                    <p class="post-heading mb-0">Edit your comment</p>
+                    <form class="mb-0" method="POST" action="/profile/<%= user._id %>/posts/<%= post._id %>/comment/<%= comment._id %>?_method=PUT">
+                        <!--Comment-->
+                        <input type="text" class="form-control tl-fc" name="comment[content]" value="<%= comment.content %>">
+                        <button class="btn btn-sm btn-secondary mt-1" type="submit">Save Edit!</button>
+                    </form>
+                    <form method="POST" action="/profile/<%= user.id %>/posts/<%= post._id %>/comment/<%= comment._id %>?_method=DELETE">
+                        <button class="btn btn-danger button-sm" type="submit">Delete Post</button>
+                    </form>
+                </div>
+            
+        </div> <!--End main timeline -->
+    </div> <!-- End row -->
+    
+</div> <!--End container -->
+
+<% include ../partials/footer.ejs %>

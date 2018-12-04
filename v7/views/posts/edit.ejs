@@ -1,0 +1,65 @@
+<% include ../partials/header.ejs %>
+
+<div class="container pt-3">
+    <div class="row">
+        <!--Profile Aside-->
+        <div class="col-md-4">
+            <div class="tl-profile-container">
+                <!--Profile Photo-->
+                <img src="<%= user.image %>" >
+                <div class="meta">
+                    <!--Name-->
+                    <p><%= user.firstName %> <%= user.lastName %></p>
+                    <!--Bio-->
+                    <div class="meta-group">
+                        <i class="far fa-address-card"></i><p><%= user.bio %></p>
+                    </div>
+                    <!--Hometown-->
+                    <div class="meta-group">
+                        <i class="fas fa-map-marker-alt"></i><p><%= user.city %>, <%= user.state %></p>
+                    </div>
+                    <!--Birthday-->
+                    <div class="meta-group">
+                        <i class="fas fa-birthday-cake"></i><p><%= user.month %> <%= user.day %>, <%= user.year %></p>
+                    </div>
+                    <!--Number of posts-->
+                    <div class="meta-group">
+                        <i class="fas fa-pencil-alt"></i><p><%= user.posts.length %> posts</p>
+                    </div>
+                    <!--Member since-->
+                    <div class="meta-group">
+                        <i class="far fa-calendar-alt"></i><p>Member since <%= moment(user.joinedOn).format('MMMM Do YYYY') %></p>
+                    </div>
+                    <!--Edit button-->
+                    <a class="btn btn-sm btn-secondary mt-1" href="/profile/<%= user._id %>/edit">Edit profile</a>
+                </div>
+            </div>
+        </div>
+        <!--Main Timeline-->
+        <div class="col-md-8">
+            
+                <div class="tl-post-container">
+                    <!--New post form-->
+                    <p class="post-heading mb-0">Edit your post</p>
+                    <form class="mb-0" method="POST" action="/profile/<%= user._id %>/posts/<%= post._id %>?_method=PUT">
+                        <!--Line 1 (5)-->
+                        <input type="text" class="form-control tl-fc" name="post[line1]" value="<%= post.line1 %>">
+                        <!--Line 2 (7)-->
+                        <input type="text" class="form-control tl-fc" name="post[line2]" value="<%= post.line2 %>">
+                        <!--Line 3 (5)-->
+                        <input type="text" class="form-control tl-fc" name="post[line3]" value="<%= post.line3 %>">
+                        <div class="btn-container">
+                                <button class="btn btn-sm btn-secondary mt-1" type="submit">Post It!</button>
+                        </form>
+                            <form id="delete" method="POST" action="/profile/<%= user.id %>/posts/<%= post._id %>?_method=DELETE">
+                                <button class="btn btn-danger btn-sm mt-1" type="submit">Delete Post</button>
+                            </form>
+                        </div>
+                </div>
+            
+        </div> <!--End main timeline -->
+    </div> <!-- End row -->
+    
+</div> <!--End container -->
+
+<% include ../partials/footer.ejs %>

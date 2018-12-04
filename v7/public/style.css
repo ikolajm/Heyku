@@ -1,0 +1,405 @@
+/*Body*/
+body {
+    background-color: #f5f5f5;
+}
+/*Logo Font*/
+.logo {
+    font-family: 'Ranga', cursive;
+}
+/*Main font*/
+* {
+    font-family: 'Raleway', sans-serif;
+}
+
+/*Landing*/
+
+    /*Nav*/
+    .landing-nav {
+        padding: .25rem;
+        background: #f2bfd869;
+    }
+    
+    .landing-nav-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .landing-logo-head-container {
+        display: inline-block;
+    }
+    
+    .landing-logo-head-container img {
+        width: 80px;
+    }
+    
+    .landing-logo-head-container p {
+        text-align: center;
+        font-size: 1.25rem;
+        margin-bottom: 0rem;
+    }
+    
+    @media screen and (max-width: 500px) {
+        .landing-logo-head-container img {
+            width: 60px;
+        }
+        
+        .landing-logo-head-container p {
+            font-size: 1.15rem;
+        }
+    }
+    
+        /*Login*/
+        .login {
+            display: inline-block;
+        }
+        
+        .login form {
+            margin-bottom: 0rem;
+        }
+        
+        .land-login {
+            margin-bottom: 0rem;
+        }
+        
+        .land-login .col label {
+            margin-bottom: .25rem;
+            font-size: .75rem;
+        }
+        
+        .landing-login-btn {
+            align-self: flex-end;
+        }
+        
+        .land-login .col input {
+            font-size: .75rem;
+        }
+        
+        @media screen and (max-width: 500px) {
+            .login .row {
+                margin-left: 0px;
+                margin-right: 0px;
+            }
+            
+            .login .col {
+                padding-left: 0px;
+                padding-right: 5px;
+            }
+        }
+        
+    /*Information*/
+    .landing-p {
+        font-weight: bold;
+        margin-bottom: .25rem;
+        font-size: 1.25rem;
+    }
+    
+    .landing-color {
+        color: #e89ec5;
+    }
+    
+    .info-bullet {
+        display: flex;
+        align-items: center;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+    
+    .info-bullet i {
+        padding-right: .5rem;
+        font-size: 1.5rem;
+    }
+    
+    .info-bullet p {
+        display: inline;
+        margin-bottom: 0rem;
+    }
+    
+    @media screen and (max-width: 500px) {
+        .landing-p {
+            font-size: 1rem;
+            text-align: center;
+        }
+    }
+    
+    @media screen and (max-width: 767px) {
+        .signup h3 {
+            text-align: center;
+        }
+    }
+        
+
+    /*Signup*/
+    .landing-content {
+        padding-top: 1.5rem;
+    }
+    
+    .signup-form-title {
+        margin-bottom: 0rem;
+    }
+    
+    .birthdays {
+        display: flex;
+    }
+    
+    .birthdays select, .birthdays input {
+        display: inline-block;
+    }
+
+/*Timeline*/
+
+    /*Nav*/
+    .nav-logo {
+        width: 60px;
+    }
+    
+    .pull-right {
+        justify-content: flex-end;
+    }
+    
+    #search-contain .form-group {
+        display: flex;
+    }
+    
+    #search-contain .form-group input {
+        display: inline;
+    }
+    
+    #search {
+        padding: .25rem;
+        height: auto;
+    }
+    
+    .signin {
+        display: flex;
+        align-items: center;
+    }
+    
+    .signin p {
+        margin-bottom: 0rem;
+    }
+    
+    .signin p img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-left: .25rem;
+        margin-right: .25rem;
+    }
+    
+    @media screen and (max-width: 767px) {
+        .signin .logout {
+            padding-left: 15px;
+        }
+    }
+    
+    /*Profile Section*/
+    .tl-profile-container {
+        padding: .7rem;
+        border-radius: 10px;
+        background: #f5d8e7
+    }
+    
+    .tl-profile-container img {
+        width: 100%;
+        border-radius: 2px;
+        margin-bottom: .5rem;
+    }
+    
+    .tl-profile-container .meta {
+        padding: .7rem;
+        color: #6c757d;
+        background: white;
+        border-radius: 2px;
+    }
+    
+    .tl-profile-container .meta-group {
+        display: flex;
+        align-items: center;
+        margin-bottom: .25rem;
+    }
+    
+    .meta-group i {
+        padding-right: 5px;
+    }
+    
+    .tl-profile-container .meta p {
+        margin-bottom: 0rem;
+    }
+    
+    @media screen and (max-width: 992px) {
+        .tl-profile-container {
+            margin-bottom: .5rem;
+        }
+    }
+    
+    /*Timeline*/
+    
+        /*Post creation*/
+        .tl-post-container {
+            padding: .7rem;
+            border-radius: 10px;
+            background: #f5d8e7
+        }
+        
+        .tl-post-container p {
+            font-weight: bold;
+            color: #6c757d;
+        }
+        
+        .tl-fc {
+            margin-top: .25rem;
+        }
+        
+        /*Posts*/
+        .tl-posts {
+            background: #f5d8e7;
+            margin-top: .5rem;
+            padding: 1rem;
+            border-radius: 10px;
+        }
+        
+        .tl-posts p {
+            font-weight: bold;
+            color: #6c757d;
+        }
+        
+        .post-title-head {
+            margin-bottom: .5rem;
+        }
+        
+        /*Individual Post*/
+        .tl-haiku-container {
+            padding: .7rem;
+            border-radius: 10px;
+            background: #f5f5f5;
+            margin-bottom: .5rem;
+        }
+        
+        .author-meta-info {
+            display: inline-flex;
+            align-items: center;
+            padding-bottom: .25rem;
+            cursor: pointer;
+        }
+        
+        .author-meta-info img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 5px;    
+        }
+        
+        .author-meta-info p {
+            margin-bottom: 0rem;
+        }
+        
+        .tl-content-haiku-container {
+            background: white;
+            padding: .5rem;
+            border-radius: 2px;
+        }
+        
+        .tl-content-haiku-container p {
+            margin-bottom: 0rem;
+        }
+        
+        .post-bb {
+            border-bottom: 1px solid #98989829;
+        }
+        
+        .tl-meta-container {
+            padding-top: .25rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .tl-date {
+            margin-bottom: 0rem;
+            font-style: italic;
+        }
+        
+        .lnc-container {
+            display: flex;
+        }
+        
+        .like-container,
+        .post-comment-container {
+            display: flex;
+            align-items: center;
+            padding-left: 1rem;
+        }
+        
+        .like-container i {
+            font-size: 1.15rem;
+            color: #FFEB3B;
+            text-shadow: 0px 0px 2px black;
+        }
+        
+        .like-container p {
+            margin-bottom: 0rem;
+            padding-left: 5px;
+        }
+        
+        .post-comment-container i {
+            color: #989898;
+            text-shadow: 0px 0px 2px black;
+        }
+        
+        .tl-comments {
+            margin-bottom: 0rem;
+            padding-left: 5px;
+        }
+        
+        .btn-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        #delete {
+            margin-bottom: 0rem;
+            padding-left: 5px;
+        }
+        
+        @media screen and (max-width: 550px) {
+            .tl-meta-container {
+                display: block;
+                font-size: .75rem;
+            }
+            
+            .lnc-container {
+                display: flex;
+                margin-bottom: .25rem;
+            }
+            
+            .like-container {
+                padding-left: 0rem;
+            }
+        }
+        
+        @media screen and (max-width: 767px) {
+            .tl-meta-container {
+                font-size: .75rem;
+            }
+        }
+        
+/*Footer*/
+.date {
+    padding-left: 15px;
+}
+
+@media screen and (max-width: 767px) {
+    .date {
+        padding-left: 0px;
+    }
+    
+    .tl-bottom-date {
+        padding-left: 15px;
+    }
+}
+
+/*Alerts*/
+
+.alert {
+    margin-top: 1rem;
+}

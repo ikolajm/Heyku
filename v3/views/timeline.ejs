@@ -1,0 +1,83 @@
+<% include ./partials/header.ejs %>
+
+<div class="container pt-3">
+    <div class="row">
+        <!--Profile Aside-->
+        <div class="col-md-4">
+            <div class="tl-profile-container">
+                <!--Profile Photo-->
+                <img src="<%= currentUser.image %>" >
+                <div class="meta">
+                    <!--Name-->
+                    <p><%= currentUser.firstName %> <%= currentUser.lastName %></p>
+                    <!--Bio-->
+                    <p><%= currentUser.bio %></p>
+                    <a href="/profile/<%= currentUser._id %>"><button>View profile</button></a>
+                </div>
+            </div>
+        </div>
+        <!--Main Timeline-->
+        <div class="col-md-8">
+            
+            <div class="tl-post-container">
+                <!--New post form-->
+                <p class="post-heading mb-0">Create a post</p>
+                <form class="mb-0" method="POST" action="/timeline">
+                    <!--Line 1 (5)-->
+                    <input type="text" class="form-control tl-fc" name="post[line1]" placeholder="5 Sylables">
+                    <!--Line 2 (7)-->
+                    <input type="text" class="form-control tl-fc" name="post[line2]" placeholder="7 Sylables">
+                    <!--Line 3 (5)-->
+                    <input type="text" class="form-control tl-fc" name="post[line3]" placeholder="5 Sylables">
+                    <button class="btn btn-sm btn-secondary mt-1" type="submit">Post It!</button>
+                </form>
+            </div>
+            
+            <!--Timeline posts-->
+            <div class="tl-posts">
+                <p>Recent posts</p>
+                <!--Loop to post all posts in timeline-->
+                <% posts.forEach(function(post) { %>
+                
+                    <!--Card/Container-->
+                    <div class="tl-post-container">
+                        <!--Haiku-->
+                        <div class="tl-haiku-container">
+                            <p><%= post.content %></p>
+                        </div>
+                        <!--Show number of likes-->
+                        <div class="tl-meta-container">
+                            <p class="tl-date"><%= post.createdAt %></p>
+                            <p class="tl-likes"><%= post.likes %></p>
+                        </div>
+                        <!--Show 2-3 comments, then view all button linking to individual post-->
+                        <div class="tl-comment-container">
+                            
+                            <!--REVISE FUNCTION TO ALLOW ONLY A COUPLE COMMENTS AT A TIME-->
+                            <% post.comments.forEach(function(comment) { %>
+                                <div class="comment">
+                                    <!--Author-->
+                                    <p><strong><%= comment.author.firstName %> <%= comment.author.lastName %></strong></p>
+                                    <!--Text-->
+                                    <p><%= comment.text %></p>
+                                    <!--Date posted-->
+                                    <span class="date"><em>Date Posted</em></span>
+                                    <!--Buttons to edit + delete comments-->
+                                    <div class="button-group">
+                                    </div>
+                                </div>
+                            <% }); %>
+                            
+                        </div> <!--End comment container -->
+                    </div> <!--End post container -->
+                    
+                <% }); %>
+                
+            </div> <!-- End tl posts -->
+            
+        </div> <!--End main timeline -->
+    </div> <!-- End row -->
+    
+</div> <!--End container -->
+
+<% include ./partials/footer.ejs %>

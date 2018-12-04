@@ -1,0 +1,130 @@
+<% include ../partials/header.ejs %>
+
+<div class="container pt-3">
+    <div class="row">
+        <!--Profile Aside-->
+        <div class="col-lg-4">
+            <div class="tl-profile-container">
+                <!--Profile Photo-->
+                <img src="<%= user.image %>" >
+                <div class="meta">
+                    <!--Name-->
+                    <p><%= user.firstName %> <%= user.lastName %></p>
+                    <!--Bio-->
+                    <div class="meta-group">
+                        <i class="far fa-address-card"></i><p><%= user.bio %></p>
+                    </div>
+                    <!--Hometown-->
+                    <div class="meta-group">
+                        <i class="fas fa-map-marker-alt"></i><p><%= user.city %>, <%= user.state %></p>
+                    </div>
+                    <!--Birthday-->
+                    <div class="meta-group">
+                        <i class="fas fa-birthday-cake"></i><p><%= user.month %> <%= user.day %>, <%= user.year %></p>
+                    </div>
+                    <!--Number of posts-->
+                    <div class="meta-group">
+                        <i class="fas fa-pencil-alt"></i><p><%= user.posts.length %> posts</p>
+                    </div>
+                    <!--Member since-->
+                    <div class="meta-group">
+                        <i class="far fa-calendar-alt"></i><p>Member since <%= moment(user.joinedOn).format('MMMM Do YYYY') %></p>
+                    </div>
+                    <% if (currentUser._id.equals(user._id)) { %>
+                        <!--Edit button-->
+                        <a class="btn btn-sm btn-secondary mt-1" href="/profile/<%= user._id %>/edit">Edit profile</a>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        <!--Main Timeline-->
+        <div class="col-lg-8">
+            
+            <!--Timeline posts-->
+            <div class="tl-posts">
+                
+                <% if (user._id.equals(currentUser._id)) { %>
+                    <p class="post-title-head">Your post</p>
+                <% } else { %>
+                    <p class="post-title-head"><%= user.firstName %>'s post</p>
+                <% } %> 
+                
+                <div class="tl-haiku-container">
+                        <div class="author-meta-info">
+                            <img src="<%= user.image %>" alt="<%= user.firstName %> <%=user.lastName%>">
+                            <p><%= user.firstName %> <%=user.lastName%></p>
+                        </div>
+                        <div class="tl-content-haiku-container">
+                            <p class="post-bb"><%= post.line1  %></p>
+                            <p class="post-bb"><%= post.line2  %></p>
+                            <p><%= post.line3  %></p>
+                        </div>
+                        <div class="tl-meta-container">
+                            <p class="tl-date"><%= moment(post.createdAt).format('MMMM Do YYYY, h:mm a') %></p>
+                            <div class="lnc-container">
+                                <div class="like-container">
+                                    <a href="/profile/<%= post.author.id %>/posts/<%= post._id %>/like"><i class="fas fa-grin-beam"></i></a>
+                                    <p class="tl-likes"><%= post.likes.length %> Likes</p>
+                                </div>
+                                <div class="post-comment-container">
+                                    <i class="fas fa-comment"></i>
+                                    <p class="tl-comments"><%= post.comments.length %> Comments</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Edit buttons-->
+                        <% if (post.author.id.equals(currentUser._id)) { %>
+                            <a class="btn btn-sm btn-secondary mt-1" href="/profile/<%= currentUser._id %>/posts/<%= post._id %>/edit">Edit post</a>
+                        <% } %>
+                    </div>
+                    
+                    
+                    <p class="post-title-head">Comments</p>
+                    <div class="tl-haiku-container">
+                        <!--New post form-->
+                        <p class="post-heading mb-0">Leave a comment</p>
+                        <form class="mb-0" method="POST" action="/profile/<%= user._id %>/posts/<%= post._id %>/comments">
+                            <!--Comment-->
+                            <input type="text" class="form-control tl-fc" name="comment[content]" placeholder="Say something about this post">
+                            <button class="btn btn-sm btn-secondary mt-1" type="submit">Post It!</button>
+                        </form>
+                        <div class="comment-container">
+                            <hr>
+                            <% post.comments.forEach(function(comment) { %>
+                                <div class="tl-haiku-container">
+                                    <div class="author-meta-info">
+                                        <img src="<%= comment.author.image %>" alt="<%= comment.author.name %>">
+                                        <p><%= comment.author.name %></p>
+                                    </div>
+                                    <div class="tl-content-haiku-container">
+                                        <p><%= comment.content  %></p>
+                                    </div>
+                                    <div class="tl-meta-container">
+                                        <p class="tl-date"><%= moment(comment.createdAt).format('MMMM Do YYYY, h:mm a') %></p>
+                                        <div class="lnc-container">
+                                            <div class="like-container">
+                                                <a href="/profile/<%= post.author.id %>/posts/<%= post._id %>/comments/<%= comment._id %>/like"><i class="fas fa-grin-beam"></i></a>
+                                                <p><%= comment.likes.length %> Likes</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Edit comment-->
+                                    <% if (comment.author.id.equals(currentUser._id)) { %>
+                                        <!--Edit button-->
+                                        <a class="btn btn-sm btn-secondary mt-1" href="/profile/<%= user._id %>/posts/<%= post._id %>/comment/<%= comment._id %>/edit">Edit comment</a>
+                                    <% } %>
+                                </div>
+                            <% }); %>
+                        </div>
+                    </div>
+                
+                
+                
+            </div> <!-- End tl posts -->
+            
+        </div> <!--End main timeline -->
+    </div> <!-- End row -->
+    
+</div> <!--End container -->
+
+<% include ../partials/footer.ejs %>

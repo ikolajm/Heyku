@@ -1,0 +1,120 @@
+<!--Landing page will offer a login and sign up form, much like facebook-->
+<!--Header to include on all pages-->
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!--Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Raleway|Ranga" rel="stylesheet">
+        <!--Font Awesome-->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <!--Bootstrap-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <!--My CSS-->
+        <link rel="stylesheet" href="/style.css" type="text/css">
+        <!--Title-->
+        <title>Heyku - Log in or Sign Up</title>
+        <!--Favicon-->
+        <link rel="icon" href="https://www.designfreelogoonline.com/wp-content/uploads/2016/05/00274-Flower-Design-Free-Lotus-Logo-Maker-03.png" type="image/png">
+    </head> 
+    <body>
+    
+    <!--Nav with login-->
+    <nav class="landing-nav">
+        <div class="container landing-nav-content">
+            <div class="landing-logo-head-container">
+                <img src="https://www.designfreelogoonline.com/wp-content/uploads/2016/05/00274-Flower-Design-Free-Lotus-Logo-Maker-03.png">
+                <p class="logo">Heyku</p>
+            </div>
+            <div class="login">
+                <form>
+                    <div class="row form-group land-login">
+                        <div class="col">
+                            <label>Email:</label>
+                          <input type="text" class="form-control" placeholder="name@example.com">
+                        </div>
+                        <div class="col">
+                            <label>Password:</label>
+                          <input type="password" class="form-control" placeholder="password">
+                        </div>
+                        <button type="button" class="btn btn-sm btn-secondary landing-login-btn">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+    
+    <!--Main content-->
+    <div class="container landing-content">
+        
+        <div class="row">
+            <!--Information-->
+            <div class="col-0 col-md-6">
+                <div class="landing-information">
+                    <p class="landing-p">Make your online aesthetic a poetic one!</p>
+                    <p class="landing-p">Heyku - The most expressive outlet to date!</p>
+                    <div class="info-bullet">
+                        <i class="far fa-edit landing-color"></i> <p><strong>Show off</strong> your poetic skills</p>
+                    </div>
+                    <div class="info-bullet">
+                        <i class="fas fa-globe-americas landing-color"></i> <p><strong>Share</strong> your photos and thoughts with the world</p>
+                    </div>
+                    <div class="info-bullet">
+                        <i class="far fa-grin-beam landing-color"></i> <p><strong>Experience</strong> the future of social media</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!--Sign Up-->
+            <div class="col-12 col-md-6">
+                <!--Sign up model-->
+                <div class="signup">
+                    <h3>Don't have an account? Sign up!</h3>
+                    <form>
+                        <!--Name-->
+                        <div class="row form-group">
+                            <div class="col">
+                              <input type="text" class="form-control" placeholder="First name">
+                            </div>
+                            <div class="col">
+                              <input type="text" class="form-control" placeholder="Last name">
+                            </div>
+                      </div>
+                      <!--Email-->
+                      <div class="form-group">
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                      </div>
+                      <!--Birthday-->
+                      <p class="bday-title">Birthday</p>
+                      <div class="birthdays">
+                          <!--Month-->
+                          <select class="custom-select mr-sm-2" id="inlineFormCustomSelectPref">
+                            <option selected>Month</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                          </select>
+                          <!--Day-->
+                          <select class="custom-select mr-sm-2" id="inlineFormCustomSelectPref">
+                            <option selected>Day</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                          </select>
+                          <!--Year-->
+                          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Year (19xx)">
+                      </div>
+                      <!--Image upload-->
+                      <!--TO BE ADDED + FACTORED LATER-->
+                      <button type="button" class="btn btn-success mt-3">Sign Up</button>
+                    </form>
+                </div>
+            </div> <!--End Sign Up-->
+        </div>
+        
+        
+        
+        <% include ./partials/footer.ejs %>
+    </div>
+    

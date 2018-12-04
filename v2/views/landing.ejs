@@ -1,0 +1,147 @@
+<!--Landing page will offer a login and sign up form, much like facebook-->
+<!--Header to include on all pages-->
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!--Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Raleway|Ranga" rel="stylesheet">
+        <!--Font Awesome-->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <!--Bootstrap-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <!--My CSS-->
+        <link rel="stylesheet" href="/style.css" type="text/css">
+        <!--Title-->
+        <title>Heyku - Log in or Sign Up</title>
+        <!--Favicon-->
+        <link rel="icon" href="https://www.designfreelogoonline.com/wp-content/uploads/2016/05/00274-Flower-Design-Free-Lotus-Logo-Maker-03.png" type="image/png">
+    </head> 
+    <body>
+    
+    <!--Nav with login-->
+    <nav class="landing-nav">
+        <div class="container landing-nav-content">
+            <div class="landing-logo-head-container">
+                <img src="https://www.designfreelogoonline.com/wp-content/uploads/2016/05/00274-Flower-Design-Free-Lotus-Logo-Maker-03.png">
+                <p class="logo">Heyku</p>
+            </div>
+            <div class="login">
+                <form method="POST" action="/login">
+                    <div class="row form-group land-login">
+                        <div class="col">
+                            <label>Email:</label>
+                            <!--**EMAIL IS REFERRED TO AS USERNAME**-->
+                          <input type="email" class="form-control" placeholder="name@example.com" name="username">
+                        </div>
+                        <div class="col">
+                            <label>Password:</label>
+                          <input type="password" class="form-control" placeholder="password" name="password">
+                        </div>
+                        <button type="submit" class="btn btn-sm btn-secondary landing-login-btn">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+    
+    <!--Main content-->
+    <div class="container landing-content">
+        
+        <!--FLASH MESSAGES-->
+        <!--If error-->
+          <% if (messageError && messageError.length > 0) { %>
+             <div class="alert alert-danger flash" role="alert">
+               <%= messageError %>
+             </div>
+          <% } %>
+          <!--If success-->
+          <% if (messageSuccess && messageSuccess.length > 0) { %>
+              <div class="alert alert-success flash" role="alert">
+                <%= messageSuccess %>
+              </div>
+          <% } %>
+        
+        <div class="row">
+            <!--Information-->
+            <div class="col-0 col-md-6">
+                <div class="landing-information">
+                    <p class="landing-p">Make your online aesthetic a poetic one!</p>
+                    <p class="landing-p">Heyku - The most expressive outlet to date!</p>
+                    <div class="info-bullet">
+                        <i class="far fa-edit landing-color"></i> <p><strong>Show off</strong> your poetic skills</p>
+                    </div>
+                    <div class="info-bullet">
+                        <i class="fas fa-globe-americas landing-color"></i> <p><strong>Share</strong> your thoughts with the world</p>
+                    </div>
+                    <div class="info-bullet">
+                        <i class="far fa-grin-beam landing-color"></i> <p><strong>Experience</strong> the future of social media</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!--Sign Up-->
+            <div class="col-12 col-md-6">
+                <!--Sign up model-->
+                <div class="signup">
+                    <h3>Don't have an account? Sign up!</h3>
+                    <form method="POST" action="/signup">
+                        <!--Name-->
+                        <p class="signup-form-title pt-2">Name</p>
+                        <div class="row form-group">
+                            <div class="col">
+                              <input type="text" class="form-control" placeholder="First name" name="firstName">
+                            </div>
+                            <div class="col">
+                              <input type="text" class="form-control" placeholder="Last name" name="lastName">
+                            </div>
+                      </div>
+                      <!--Email-->
+                      <div class="form-group">
+                          <p class="signup-form-title">Email</p>
+                          <!--**EMAIL IS REFERRED TO AS USERNAME**-->
+                        <input type="email" class="form-control" placeholder="name@example.com" name="username">
+                      </div>
+                      <!--Password-->
+                      <div class="form-group">
+                          <p class="signup-form-title">Password</p>
+                        <input type="password" class="form-control" placeholder="Password" name="password">
+                      </div>
+                      <!--Birthday-->
+                      <p class="signup-form-title">Birthday</p>
+                      <div class="birthdays">
+                          <!--Month-->
+                          <select style="color:#6c757d" class="custom-select mr-sm-2" name="month">
+                            <option selected>Month</option>
+                            <option value="January">January</option><option value="February">February</option><option value="March">March</option><option value="April">April</option><option value="May">May</option><option value="June">June</option><option value="July">July</option><option value="August">August</option><option value="September">September</option><option value="October">October</option><option value="November">November</option><option value="December">December</option>
+                          </select>
+                          <!--Day-->
+                          <select style="color:#6c757d" class="custom-select mr-sm-2" name="day">
+                            <option selected>Day</option>
+                            <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option>
+                          </select>
+                          <!--Year-->
+                          <input type="text" class="form-control" placeholder="Year (19xx)" name="year">
+                      </div>
+                      <!--Image upload URL-->
+                      <!--IMAGE UPLOAD TO BE ADDED + FACTORED LATER-->
+                      <div class="form-group my-3">
+                          <p class="signup-form-title">Profile Image</p>
+                        <input type="text" class="form-control" placeholder="Image URL" name="image">
+                      </div>
+                      <!--Bio-->
+                      <p class="signup-form-title">Bio</p>
+                      <textarea style="color:#6c757d" class="form-control" name="bio">Tell us about yourself</textarea>
+                      <!--Submit-->
+                      <button type="submit" class="btn btn-success mt-3">Sign Up</button>
+                    </form>
+                </div>
+            </div> <!--End Sign Up-->
+        </div>
+        
+        
+        
+        <% include ./partials/footer.ejs %>
+    </div>
+    

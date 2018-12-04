@@ -1,0 +1,28 @@
+=====V1=====
+
+Init package.json - 
+
+Create main app file with basic routes -
+
+Template landing page -
+
+Template Header/Footer - 
+
+Fonts/Color Scheme - 
+    Primary: #f5d8e7
+    Secondary: #d31b87
+    Tertiary: #f285b5
+    Dark colors: bootstrap secondary + #f5f5f5
+    Logo Font: Ranga - font-family: 'Ranga', cursive;
+    Main Font: Raleway - font-family: 'Raleway', sans-serif;
+
+=====V2=====
+
+Connect mongoose
+
+Plan models
+
+Template timeline page
+
+Create post routes
+

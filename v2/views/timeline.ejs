@@ -1,0 +1,59 @@
+<% include ./partials/header.ejs %>
+
+<div class="container">
+    <!--Profile Aside-->
+    <div class="col-md-4">
+        <!--Profile Photo-->
+        <!--Name-->
+        <!--Age-->
+        <!--Bio-->
+    </div>
+    <!--Main Timeline-->
+    <div class="col-md-8">
+        
+        <!--New post form-->
+        <form method="POST" action="/timeline">
+            
+        </form>
+        
+        <!--Loop to post all posts in timeline-->
+        <% posts.forEach(function(post) { %>
+        
+            <!--Card/Container-->
+            <div class="tl-post-container">
+                <!--Haiku-->
+                <div class="tl-haiku-container">
+                    <p><%= post.content %></p>
+                </div>
+                <!--Show number of likes-->
+                <div class="tl-meta-container">
+                    <p class="tl-date"><%= post.createdAt %></p>
+                    <p class="tl-likes"><%= post.likes %></p>
+                </div>
+                <!--Show 2-3 comments, then view all button linking to individual post-->
+                <div class="tl-comment-container">
+                    
+                    <!--REVISE FUNCTION TO ALLOW ONLY A COUPLE COMMENTS AT A TIME-->
+                    <% post.comments.forEach(function(comment) { %>
+                        <div class="comment">
+                            <!--Author-->
+                            <p><strong><%= comment.author.firstName %> <%= comment.author.lastName %></strong></p>
+                            <!--Text-->
+                            <p><%= comment.text %></p>
+                            <!--Date posted-->
+                            <span class="date"><em>Date Posted</em></span>
+                            <!--Buttons to edit + delete comments-->
+                            <div class="button-group">
+                            </div>
+                        </div>
+                    <% }); %>
+                    
+                </div> <!--End comment container -->
+            </div> <!--End post container -->
+            
+        <% }); %>
+        
+    </div> <!--End main timeline -->
+</div> <!--End container -->
+
+<% include ./partials/footer.ejs %>

@@ -1,0 +1,66 @@
+<% include ./partials/header.ejs %>
+
+<div class="container pt-3">
+    <div class="row">
+        <!--Profile Aside-->
+        <div class="col-md-4">
+            <div class="tl-profile-container">
+                <!--Profile Photo-->
+                <img src="<%= user.image %>" >
+                <div class="meta">
+                    <!--Name-->
+                    <p><%= user.firstName %> <%= user.lastName %></p>
+                    <!--Bio-->
+                    <p><%= user.bio %></p>
+                    <!--Hometown???-->
+                    <p><%= user.city %>, <%= user.state %></p>
+                    <!--Birthday-->
+                    <p><%= user.month %> <%= user.day %>, <%= user.year %></p>
+                    <!--Number of posts-->
+                    <p><%= user.posts.length %> posts</p>
+                    <!--Member since-->
+                    <p>Member since <%= moment(user.joinedOn).format('MMMM Do YYYY') %></p>
+                    <!-- Edit if authenticated -->
+                    <% if (user._id.equals(currentUser._id)) { %>
+                        <!--Edit button-->
+                        <!--Delete button-->
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        <!--Main Timeline-->
+        <div class="col-md-8">
+            
+            <% if (user._id.equals(currentUser._id)) { %>
+                <div class="tl-post-container">
+                    <!--New post form-->
+                    <p class="post-heading mb-0">Create a post</p>
+                    <form class="mb-0" method="POST" action="/timeline">
+                        <!--Line 1 (5)-->
+                        <input type="text" class="form-control tl-fc" name="line1" placeholder="5 Sylables">
+                        <!--Line 2 (7)-->
+                        <input type="text" class="form-control tl-fc" name="line2" placeholder="7 Sylables">
+                        <!--Line 3 (5)-->
+                        <input type="text" class="form-control tl-fc" name="line3" placeholder="5 Sylables">
+                        <button class="btn btn-sm btn-secondary mt-1" type="submit">Post It!</button>
+                    </form>
+                </div>
+            <% } %>
+            
+            <!--Timeline posts-->
+            <div class="tl-posts">
+                
+                <% if (user._id.equals(currentUser._id)) { %>
+                    <p>Your recent posts</p>
+                <% } else { %>
+                    <p><%= user.firstName %>'s recent posts</p>
+                <% } %> 
+                
+            </div> <!-- End tl posts -->
+            
+        </div> <!--End main timeline -->
+    </div> <!-- End row -->
+    
+</div> <!--End container -->
+
+<% include ./partials/footer.ejs %>

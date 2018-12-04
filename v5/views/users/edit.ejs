@@ -1,0 +1,112 @@
+<% include ../partials/header.ejs %>
+<div class="container pt-3">
+    <div class="row">
+        <!--Profile Aside-->
+        <div class="col-md-4">
+            <div class="tl-profile-container">
+                <!--Profile Photo-->
+                <img src="<%= user.image %>" >
+                <div class="meta">
+                    <!--Name-->
+                    <p><%= user.firstName %> <%= user.lastName %></p>
+                    <!--Bio-->
+                    <p><%= user.bio %></p>
+                    <!--Hometown???-->
+                    <p><%= user.city %>, <%= user.state %></p>
+                    <!--Birthday-->
+                    <p><%= user.month %> <%= user.day %>, <%= user.year %></p>
+                    <!--Number of posts-->
+                    <p><%= user.posts.length %> posts</p>
+                    <!--Member since-->
+                    <p>Member since <%= moment(user.joinedOn).format('MMMM Do YYYY') %></p>
+                </div>
+            </div>
+        </div>
+        <!--Main Timeline-->
+        <div class="col-md-8">
+            
+            <!--Timeline posts-->
+            <div class="tl-posts">
+                    
+                    <p class="post-heading mb-0">Edit your profile</p>
+                    <div class="tl-haiku-container">
+                        <form method="POST" action="/profile/<%= user._id %>?_method=PUT">
+                            <!--Name-->
+                            <p class="signup-form-title pt-2">Name</p>
+                            <div class="row form-group">
+                                <div class="col">
+                                  <input type="text" class="form-control" value="<%= user.firstName %>" name="firstName">
+                                </div>
+                                <div class="col">
+                                  <input type="text" class="form-control" value="<%= user.lastName %>" name="lastName">
+                                </div>
+                          </div>
+                          <!--Email-->
+                          <div class="form-group">
+                              <p class="signup-form-title">Email</p>
+                              <!--**EMAIL IS REFERRED TO AS USERNAME**-->
+                            <input type="email" class="form-control" value="<%= user.username %>" name="username">
+                          </div>
+                          <!--Password-->
+                          <div class="form-group">
+                              <p class="signup-form-title">Password</p>
+                            <input type="password" class="form-control" value="<%= user.password %>" name="password">
+                          </div>
+                          <!--Birthday-->
+                          <p class="signup-form-title">Birthday</p>
+                          <div class="birthdays">
+                              <!--Month-->
+                              <select style="color:#6c757d" class="custom-select mr-sm-2" name="month">
+                                <option selected>Month</option>
+                                <option value="January">January</option><option value="February">February</option><option value="March">March</option><option value="April">April</option><option value="May">May</option><option value="June">June</option><option value="July">July</option><option value="August">August</option><option value="September">September</option><option value="October">October</option><option value="November">November</option><option value="December">December</option>
+                              </select>
+                              <!--Day-->
+                              <select style="color:#6c757d" class="custom-select mr-sm-2" name="day">
+                                <option selected>Day</option>
+                                <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option>
+                              </select>
+                              <!--Year-->
+                              <input type="text" class="form-control" value="<%= user.year %>" name="year">
+                          </div>
+                          <!--Image upload URL-->
+                          <!--IMAGE UPLOAD TO BE ADDED + FACTORED LATER-->
+                          <div class="form-group my-3">
+                              <p class="signup-form-title">Profile Image</p>
+                            <input type="text" class="form-control" value="<%= user.image %>" name="image">
+                          </div>
+                          <!--City-->
+                          <div class="form-row mb-3">
+                            <div class="col">
+                              <p class="signup-form-title">Location</p>
+                              <input type="text" class="form-control" value="<%= user.city %>" name="city">
+                            </div>
+                            <!--State-->
+                            <div class="col">
+                                <p class="signup-form-title">State</p>
+                                <select id="inputState" class="form-control" name="state" required>
+                                    <option selected>Choose a state</option>
+                                    <!--STATE LIST-->
+                                    <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option><option>California</option><option>Colorado</option><option>Conneticut</option><option>Delaware</option><option>Florida</option><option>Georgia</option><option>Hawaii</option><option>Idaho</option><option>Illinois</option><option>Indiana</option><option>Iowa</option><option>Kansas</option><option>Kentucky</option><option>Luisiana</option><option>Maine</option><option>Maryland</option><option>Massachusettes</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option><option>Missouri</option><option>Montana</option><option>Nebraska</option><option>Nevada</option><option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option><option>New York</option><option>North Carolina</option><option>North Dakota</option><option>Ohio</option><option>Oklahoma</option><option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Dakota</option><option>Tennesee</option><option>Texas</option><option>Utah</option><option>Vermont</option><option>Virginia</option><option>Washington</option><option>West Virginia</option><option>Wisconsin</option><option>Wyoming</option>
+                                </select>
+                             </div>
+                          </div>
+                          <!--Bio-->
+                          <p class="signup-form-title">Bio</p>
+                          <textarea style="color:#6c757d" class="form-control" name="bio"><%= user.bio %></textarea>
+                          <!--Submit-->
+                          <button type="submit" class="btn btn-success mt-3">Save Edits</button>
+                        </form>
+                        <!--Remove-->
+                        <form method="POST" action="/profile/<%= user._id %>?_method=DELETE">
+                            <button>Delete Profile</button>
+                        </form>
+                    </div>
+                
+            </div> <!-- End tl posts -->
+            
+        </div> <!--End main timeline -->
+    </div> <!-- End row -->
+    
+</div> <!--End container -->
+
+<% include ../partials/footer.ejs %>
